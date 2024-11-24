@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="finder" method="upgrade">
+	<name>plg_finder_jdocmanual</name>
+	<author>Clifford E Ford</author>
+	<creationDate>2024-11-21</creationDate>
+	<copyright>(C) 2024 Clifford E Ford</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
+	<authorUrl>jdocmanual.org</authorUrl>
+	<version>0.1.0</version>
+	<description>PLG_FINDER_JDOCMANUAL_XML_DESCRIPTION</description>
+	<namespace path="src">Cefjdemos\Plugin\Finder\Jdocmanual</namespace>
+	<files>
+		<folder plugin="jdocmanual">services</folder>
+		<folder>src</folder>
+        <folder>language</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic" addfieldprefix="Joomla\Component\Finder\Administrator\Field">
+				<field
+					name="taxonomies"
+					type="taxonomytypes"
+					label="PLG_FINDER_JDOCMANUAL_TAXONOMIES_LABEL"
+					default="type,language,manual"
+					multiple="true"
+					>
+					<option value="manual">PLG_FINDER_JDOCMANUAL_TAXONOMIES_MANUAL</option>
+					<option value="language">PLG_FINDER_JDOCMANUAL_TAXONOMIES_LANGUAGE</option>
+					<option value="type">PLG_FINDER_JDOCMANUAL_TAXONOMIES_TYPE</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
