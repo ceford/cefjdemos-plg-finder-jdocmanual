@@ -16,7 +16,7 @@ use Joomla\Component\Finder\Administrator\Indexer\Adapter;
 use Joomla\Component\Finder\Administrator\Indexer\Helper;
 use Joomla\Component\Finder\Administrator\Indexer\Indexer;
 use Joomla\Component\Finder\Administrator\Indexer\Result;
-use Joomla\Component\Jdocmanual\Site\Helper\RouteHelper;
+use Joomla\CMS\Router\Route;
 use Joomla\Database\DatabaseAwareTrait;
 use Joomla\Database\QueryInterface;
 use Joomla\Event\SubscriberInterface;
@@ -236,6 +236,9 @@ final class Jdocmanual extends Adapter implements SubscriberInterface
             return;
         }
 
+        $params = ComponentHelper::getParams('com_jdocmanual');
+        $installation_subfolder = $params->get('installation_subfolder');
+
         $item->setLanguage();
 
         // Initialize the item parameters.
@@ -249,7 +252,7 @@ final class Jdocmanual extends Adapter implements SubscriberInterface
         $item->url = $this->getUrl($item->id, $this->extension, $this->layout);
 
         // Build the necessary route and path information.
-        $item->route = "jdocmanual?article={$item->manual}/{$item->heading}/{$item->filename}";
+        $item->route = $installation_subfolder . "/jdocmanual?article={$item->manual}/{$item->heading}/{$item->filename}";
         // was RouteHelper::getComponentJdocmanualRoute($item->slug, $item->language);
 
         // Get the menu title if it exists.
