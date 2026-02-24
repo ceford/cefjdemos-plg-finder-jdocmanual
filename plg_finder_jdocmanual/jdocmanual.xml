@@ -22,7 +22,7 @@
                     name="taxonomies"
                     type="taxonomytypes"
                     label="PLG_FINDER_JDOCMANUAL_TAXONOMIES_LABEL"
-                    default="['type','language','manual']"
+                    default="type,language,manual"
                     multiple="true"
                     >
                     <option value="manual">PLG_FINDER_JDOCMANUAL_TAXONOMIES_MANUAL</option>
